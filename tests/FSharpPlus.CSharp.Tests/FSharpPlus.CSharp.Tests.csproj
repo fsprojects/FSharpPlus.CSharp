@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp3.0;net461</TargetFrameworks>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="../../src/FSharpPlus.CSharp/FSharpPlus.CSharp.fsproj" />
+    </ItemGroup>
+    <!-- <Import Project="..\..\fsc.props" /> -->
+    <Import Project="..\..\netfx.props" />
+    <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>
