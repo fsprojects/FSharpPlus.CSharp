@@ -3,7 +3,7 @@ open System.Runtime.CompilerServices
 open System
 open System.Collections.Generic
 open FSharpPlus
-module Internals=
+module internal Internals=
     module Result=
         /// Wraps a function, encapsulates any exception thrown within to a Result
         let inline protect f x =
