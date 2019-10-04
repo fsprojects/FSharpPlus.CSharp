@@ -5,12 +5,12 @@ using NUnit.Framework;
 using Microsoft.FSharp.Collections;
 using FSharpPlusCSharp;
 
-namespace FSharpx.Functional.CSharpTests {
+namespace FSharpPlusCSharp.CSharpTests {
     [TestFixture]
     public class OptionTests {
         [Test]
         public void HasValue() {
-            var a = Option.Some(5);
+            var a = Options.Some(5);
             Assert.IsTrue(a.HasValue());
         }
 
@@ -36,7 +36,7 @@ namespace FSharpx.Functional.CSharpTests {
 
         [Test]
         public void Some() {
-            var a = Option.Some(5);
+            var a = Options.Some(5);
             Assert.AreEqual(5, a.Value);
         }
 
@@ -155,7 +155,7 @@ namespace FSharpx.Functional.CSharpTests {
 
         [Test]
         public void TryParseInt() {
-            var a = Option.ParseInt("123");
+            var a = Options.ParseInt("123");
             Assert.AreEqual(123, a.Value);
         }
 
@@ -167,27 +167,27 @@ namespace FSharpx.Functional.CSharpTests {
 
         [Test]
         public void TryParseDouble() {
-            var a = Option.ParseDouble("123E12");
+            var a = Options.ParseDouble("123E12");
             Assert.AreEqual(123E12, a.Value);
         }
 
         [Test]
         public void TryParseFloat() {
-            var a = Option.ParseFloat("12");
+            var a = Options.ParseFloat("12");
             Assert.AreEqual(12, a.Value);
         }
 
         [Test]
         public void CastInt() {
             object o = 22;
-            var a = Option.Cast<int>(o);
+            var a = Options.Cast<int>(o);
             Assert.AreEqual(22, a.Value);
         }
 
         [Test]
         public void CastInt_null() {
             object o = null;
-            var a = Option.Cast<int>(o);
+            var a = Options.Cast<int>(o);
             Assert.IsFalse(a.HasValue());
         }
 

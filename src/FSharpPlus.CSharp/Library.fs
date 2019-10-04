@@ -91,7 +91,7 @@ type Funcs =
         Func<_,_>(fun x -> g.Invoke(f.Invoke(x)))
 
 [<Extension>]
-type Option =
+type Options =
     static member Cast(o:obj) : 'a option =
         try
             Some (unbox o)
@@ -247,7 +247,7 @@ type Option =
     static member ParseDateTimeOffset s :DateTimeOffset option= tryParse s
 
 [<Extension>]
-type Choice =
+type Choices =
 
 
     [<Extension>]
@@ -302,7 +302,7 @@ type Choice =
     static member New3Of3<'T1,'T2,'T3> (a: 'T3) : Choice<'T1,'T2,'T3> = Choice3Of3 a
 
 [<Extension>]
-type Result =
+type Results =
 
     /// Attempts to cast an object.
     /// Stores the cast value in Ok if successful, otherwise stores the exception in Error
@@ -346,7 +346,7 @@ type Result =
 
 
 [<Extension>]
-type FSharpList =
+type FSharpLists =
     [<Extension>]
     static member Match (l, empty: Func<_>, nonempty: Func<_,_,_>) =
         match l with
@@ -375,7 +375,7 @@ type FSharpList =
     static member ToFSharpList s = Seq.toList s
 
 [<Extension>]
-type FSharpSet =
+type FSharpSets =
     static member Create([<ParamArray>] values: 'T1 array) =
         set values
 
@@ -383,7 +383,7 @@ type FSharpSet =
     static member ToFSharpSet values = set values
 
 [<Extension>]
-type FSharpMap =
+type FSharpMaps =
     static member Create([<ParamArray>] values) =
         Map.ofArray values
 

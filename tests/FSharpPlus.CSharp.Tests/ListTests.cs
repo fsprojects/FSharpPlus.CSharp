@@ -23,36 +23,36 @@ namespace FSharpPlusCSharp.Tests {
 
         [Test]
         public void NewList() {
-            var a = FSharpList.Create(1, 2, 3);
+            var a = FSharpLists.Create(1, 2, 3);
             Assert.AreEqual(3, a.Length);
         }
 
         [Test]
         public void Choose() {
-            var a = FSharpList.Create(1.Some(), FSharpOption<int>.None, 3.Some());
+            var a = FSharpLists.Create(1.Some(), FSharpOption<int>.None, 3.Some());
             var b = a.Choose(x => x);
             Assert.AreEqual(2, b.Length);
         }
 
         [Test]
         public void Cons() {
-            var a = FSharpList.Create(1, 2, 3);
+            var a = FSharpLists.Create(1, 2, 3);
             var b = a.Cons(0);
-            var c = FSharpList.Cons(a, 0);
-            Assert.AreEqual(FSharpList.Create(0, 1, 2, 3), b);
-            Assert.AreEqual(FSharpList.Create(0, 1, 2, 3), c);
+            var c = FSharpLists.Cons(a, 0);
+            Assert.AreEqual(FSharpLists.Create(0, 1, 2, 3), b);
+            Assert.AreEqual(FSharpLists.Create(0, 1, 2, 3), c);
         }
 
         [Test]
         public void ToFSharpList() {
             var a = new[] { 1, 2, 3 };
             var b = a.ToFSharpList();
-            Assert.AreEqual(FSharpList.Create(1, 2, 3), b);
+            Assert.AreEqual(FSharpLists.Create(1, 2, 3), b);
         }
 
         [Test]
         public void TryFind_predicate() {
-            var a = FSharpList.Create(1, 2, 3);
+            var a = FSharpLists.Create(1, 2, 3);
             a.TryFind(x => x > 4)
                 .Match(v => Assert.Fail("shouldn't have found value {0}", v),
                        () => { });
@@ -60,7 +60,7 @@ namespace FSharpPlusCSharp.Tests {
 
         [Test]
         public void TryFind_value() {
-            var a = FSharpList.Create(1, 2, 3);
+            var a = FSharpLists.Create(1, 2, 3);
             a.TryFind(2).Match(v => { }, 
                                () => Assert.Fail("Should have found value"));
         }
