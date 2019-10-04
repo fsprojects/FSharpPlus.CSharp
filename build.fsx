@@ -384,7 +384,7 @@ Target.create "Release" ignore
 "DotnetRestore"
     ==> "DotnetBuild"
     ==> "DotnetTest"
-    =?> ("GenerateCoverageReport", not disableCodeCoverage)
+    //=?> ("GenerateCoverageReport", not disableCodeCoverage)
     ==> "DotnetPack"
     ==> "SourcelinkTest"
     ==> "PublishToNuget"
