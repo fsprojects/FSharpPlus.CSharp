@@ -272,12 +272,12 @@ type Choices =
 
     // constructors
 
-    static member New1Of2<'T1,'T2> (a: 'T1) : Choice<'T1,'T2> = Choice1Of2 a
-    static member New2Of2<'T1,'T2> (b: 'T2) : Choice<'T1,'T2> = Choice2Of2 b
+    static member Create1Of2<'T1,'T2> (a: 'T1) : Choice<'T1,'T2> = Choice1Of2 a
+    static member Create2Of2<'T1,'T2> (b: 'T2) : Choice<'T1,'T2> = Choice2Of2 b
 
-    static member New1Of3<'T1,'T2,'T3> (a: 'T1) : Choice<'T1,'T2,'T3> = Choice1Of3 a
-    static member New2Of3<'T1,'T2,'T3> (a: 'T2) : Choice<'T1,'T2,'T3> = Choice2Of3 a
-    static member New3Of3<'T1,'T2,'T3> (a: 'T3) : Choice<'T1,'T2,'T3> = Choice3Of3 a
+    static member Create1Of3<'T1,'T2,'T3> (a: 'T1) : Choice<'T1,'T2,'T3> = Choice1Of3 a
+    static member Create2Of3<'T1,'T2,'T3> (a: 'T2) : Choice<'T1,'T2,'T3> = Choice2Of3 a
+    static member Create3Of3<'T1,'T2,'T3> (a: 'T3) : Choice<'T1,'T2,'T3> = Choice3Of3 a
 
 [<Extension>]
 type Results =
