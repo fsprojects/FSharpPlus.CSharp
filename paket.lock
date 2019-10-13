@@ -45,8 +45,9 @@ NUGET
       System.Threading.Thread (>= 4.0) - restriction: && (< net45) (>= netstandard1.6) (< netstandard2.0)
       System.Threading.ThreadPool (>= 4.0.10) - restriction: && (< net45) (>= netstandard1.6) (< netstandard2.0)
       System.Threading.Timer (>= 4.0.1) - restriction: && (< net45) (>= netstandard1.6) (< netstandard2.0)
-    FSharpPlus (1.0)
-      FSharp.Core (>= 4.3.4) - restriction: || (>= net45) (>= netstandard2.0)
+    FSharpPlus (1.1.0-CI00272)
+      FSharp.Core (>= 4.6.2) - restriction: || (>= net45) (>= netstandard2.0)
+      System.ValueTuple (>= 4.4) - restriction: >= net45
     FsUnit (3.5)
       FSharp.Core (>= 4.2.3) - restriction: || (>= net46) (>= netstandard2.0)
       NETStandard.Library (>= 2.0.3) - restriction: && (< net46) (>= netstandard2.0)
@@ -766,7 +767,7 @@ NUGET
       Microsoft.NETCore.Platforms (>= 1.1) - restriction: && (< monoandroid) (< monotouch) (< net451) (>= netstandard1.2) (< win81) (< wpa81) (< xamarinios) (< xamarinmac) (< xamarintvos) (< xamarinwatchos)
       Microsoft.NETCore.Targets (>= 1.1) - restriction: && (< monoandroid) (< monotouch) (< net451) (>= netstandard1.2) (< win81) (< wpa81) (< xamarinios) (< xamarinmac) (< xamarintvos) (< xamarinwatchos)
       System.Runtime (>= 4.3) - restriction: && (< monoandroid) (< monotouch) (< net451) (>= netstandard1.2) (< win81) (< wpa81) (< xamarinios) (< xamarinmac) (< xamarintvos) (< xamarinwatchos)
-    System.ValueTuple (4.4) - restriction: || (>= net461) (&& (>= netcoreapp1.0) (< netcoreapp2.0))
+    System.ValueTuple (4.4) - restriction: || (>= net45) (&& (>= netcoreapp1.0) (< netcoreapp2.0))
       NETStandard.Library (>= 1.6.1) - restriction: && (< monoandroid) (< monotouch) (< net461) (>= netstandard1.0) (< netstandard2.0) (< xamarintvos) (< xamarinwatchos)
     System.Xml.ReaderWriter (4.3.1) - restriction: >= netcoreapp1.0
       System.Collections (>= 4.3) - restriction: && (< monoandroid) (< monotouch) (< net45) (>= netstandard1.3) (< win8) (< wpa81) (< xamarinios) (< xamarinmac) (< xamarintvos) (< xamarinwatchos)
