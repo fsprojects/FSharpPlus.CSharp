@@ -3,6 +3,7 @@ open System.Runtime.CompilerServices
 open System
 open System.Collections.Generic
 open FSharpPlus
+open FSharpPlus.Internals
 module internal Internals=
     module Result=
         /// Wraps a function, encapsulates any exception thrown within to a Result
@@ -14,8 +15,10 @@ module internal Internals=
         /// Stores the cast value in Ok if successful, otherwise stores the exception in Error
         let inline cast (o: obj) = protect unbox o
 
+    let inline tupleToOption x = match x with true, value -> Some value | _ -> None
 
 open Internals
+open System.Globalization
 
 [<Extension>]
 type Options =
@@ -149,23 +152,19 @@ type Options =
 
     static member SomeUnit = Some()
 
-    static member ParseInt s : int32 option = tryParse s
+type NumberParser(numberstyles: NumberStyles, cultureInfo: CultureInfo)=
+    new()=NumberParser(NumberStyles.Any, CultureInfo.InvariantCulture)
+    member __.ParseDateTimeOffset s :DateTimeOffset option= tryParse s
+    member __.TryParseDecimal (x:string)= Decimal.TryParse (x, numberstyles, cultureInfo) |> tupleToOption : option<decimal>
+    member __.TryParseFloat (x:string)= Single.TryParse  (x, numberstyles, cultureInfo) |> tupleToOption : option<float32>
+    member __.TryParseDouble (x:string)= Double.TryParse  (x, numberstyles, cultureInfo) |> tupleToOption : option<float>
+    member __.TryParseUint16 (x:string)= UInt16.TryParse  (x, numberstyles, cultureInfo) |> tupleToOption : option<uint16>
+    member __.TryParseUint32 (x:string)= UInt32.TryParse  (x, numberstyles, cultureInfo) |> tupleToOption : option<uint32>
+    member __.TryParseUint64 (x:string)= UInt64.TryParse  (x, numberstyles, cultureInfo) |> tupleToOption : option<uint64>
+    member __.TryParseInt16 (x:string)= Int16.TryParse   (x, numberstyles, cultureInfo) |> tupleToOption : option<int16>
+    member __.TryParseInt (x:string)= Int32.TryParse   (x, numberstyles, cultureInfo) |> tupleToOption : option<int>
+    member __.TryParseInt64 (x:string)= Int64.TryParse   (x, numberstyles, cultureInfo) |> tupleToOption : option<int64>
 
-    static member ParseDecimal s : Decimal option= tryParse s
-
-    static member ParseDouble s : Double option = tryParse s
-
-    static member ParseFloat s : Single option = tryParse s
-
-    static member ParseInt16 s : Int16 option= tryParse s
-
-    static member ParseInt64 s : Int64 option= tryParse s
-
-    static member ParseByte s : byte option= tryParse s
-
-    static member ParseDateTime s : DateTime option= tryParse s
-
-    static member ParseDateTimeOffset s :DateTimeOffset option= tryParse s
 
 [<Extension>]
 type Choices =

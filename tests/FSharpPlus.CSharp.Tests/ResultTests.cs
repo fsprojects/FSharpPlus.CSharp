@@ -62,9 +62,10 @@ namespace FSharpPlusCSharp.Tests {
 
         [Test]
         public void ResultToOption() {
+            var parser=new NumberParser();
             object a = 40;
             const string b = "60";
-            var r = from i in Options.ParseInt(b)
+            var r = from i in parser.TryParseInt(b)
                     from j in Results.Cast<int>(a).ToOption()
                     select i + j;
             Assert.AreEqual(100.Some(), r);
@@ -73,9 +74,10 @@ namespace FSharpPlusCSharp.Tests {
 
         [Test]
         public void OptionToResult() {
+            var parser=new NumberParser();
             object a = 40;
             const string b = "60";
-            var r = from i in Options.ParseInt(b).ToResult(new Exception())
+            var r = from i in parser.TryParseInt(b).ToResult(new Exception())
                     from j in Results.Cast<int>(a)
                     select i + j;
             r.Match(i => Assert.AreEqual(100, i),
@@ -84,9 +86,10 @@ namespace FSharpPlusCSharp.Tests {
 
         [Test]
         public void SelectSecond_OK() {
+            var parser=new NumberParser();
             object a = 40;
             const string b = "60";
-            var r = from i in Options.ParseInt(b).ToResult("Invalid value b")
+            var r = from i in parser.TryParseInt(b).ToResult("Invalid value b")
                     from j in Results.Cast<int>(a).SelectError(_ => "Invalid value a")
                     select i + j;
             r.Match(i => Assert.AreEqual(100, i),
@@ -95,9 +98,10 @@ namespace FSharpPlusCSharp.Tests {
 
         [Test]
         public void SelectSecond_Error() {
+            var parser=new NumberParser();
             object a = 40;
             const string b = "xx";
-            var r = from i in Options.ParseInt(b).ToResult("Invalid value b")
+            var r = from i in parser.TryParseInt(b).ToResult("Invalid value b")
                     from j in Results.Cast<int>(a).SelectError(_ => "Invalid value a")
                     select i + j;
             r.Match(i => Assert.Fail("should not have succeeded with value {0}", i),
