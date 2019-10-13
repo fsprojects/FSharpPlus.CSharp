@@ -149,7 +149,7 @@ namespace FSharpPlusCSharp.CSharpTests {
 
         [Test]
         public void Dont() {
-            var a = FSharpOption<int>.None;
+            var a = Options.None<int>();
             a.Do(_ => Assert.Fail());
         }
 

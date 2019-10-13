@@ -61,7 +61,7 @@ namespace FSharpPlusCSharp.Tests {
         }
 
         [Test]
-        public void ChoiceToOption() {
+        public void ResultToOption() {
             object a = 40;
             const string b = "60";
             var r = from i in Options.ParseInt(b)
@@ -72,7 +72,7 @@ namespace FSharpPlusCSharp.Tests {
         }
 
         [Test]
-        public void OptionToChoice() {
+        public void OptionToResult() {
             object a = 40;
             const string b = "60";
             var r = from i in Options.ParseInt(b).ToResult(new Exception())

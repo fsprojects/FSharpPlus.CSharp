@@ -1,6 +1,8 @@
 # FSharpPlus.CSharp
 
-Selected parts from FSharpX.Extras moved over to enable usage in C#
+Selected parts from FSharpX.Extras moved over to enable usage in C#.
+
+The goal of this project is to expose selected F# classes to C#. There are some neat things about using Result, Option and Choice in your C#.
 
 ---
 
