@@ -318,3 +318,4 @@ module Enums=
     let getValues<'t> ()=
         let values = System.Enum.GetValues (typeof<'t>)
         Enumerable.Cast<'t> values //Array.unbox
+

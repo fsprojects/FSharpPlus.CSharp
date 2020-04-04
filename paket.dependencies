@@ -3,7 +3,7 @@ source https://api.nuget.org/v3/index.json
 storage: none
 clitool dotnet-mono 0.5.2
 nuget FSharp.Core 4.6.2
-nuget Microsoft.SourceLink.GitHub prerelease copy_local: true
+nuget Microsoft.SourceLink.GitHub copy_local: true
 nuget Expecto 8.10.1
 nuget YoloDev.Expecto.TestSdk 0.8.0
 nuget Microsoft.NET.Test.Sdk 15.7.2
@@ -11,7 +11,7 @@ nuget altcover ~> 5
 nuget NUnit ~> 3.
 nuget NUnit3TestAdapter ~> 3.
 nuget FsUnit ~> 3.
-nuget FSharpPlus 1.1.0-CI00272
+nuget FSharpPlus 1.1.0-RC4
 
 // [ FAKE GROUP ]
 group Build

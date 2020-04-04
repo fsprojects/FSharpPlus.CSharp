@@ -12,3 +12,6 @@ artifacts:
     name: bin
   - path: dist
     name: dist
+branches:
+  only:
+    - master
