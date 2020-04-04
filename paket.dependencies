@@ -11,7 +11,7 @@ nuget altcover ~> 5
 nuget NUnit ~> 3.
 nuget NUnit3TestAdapter ~> 3.
 nuget FsUnit ~> 3.
-nuget FSharpPlus 1.1.0-CI00272
+nuget FSharpPlus 1.1.0-RC4
 
 // [ FAKE GROUP ]
 group Build
