@@ -12,6 +12,16 @@ module internal Internals=
 open Internals
 
 [<Extension>]
+/// <summary>
+/// Helpers for working with <c>FSharpOption&lt;T&gt;</c> from C#.
+/// </summary>
+/// <example>
+/// <code lang="csharp">
+/// var sum = from x in 5.Some()
+///           from y in 6.Some()
+///           select x + y; // Some 11
+/// </code>
+/// </example>
 type Options =
     static member Cast(o:obj) : 'a option =
         try
@@ -42,6 +52,9 @@ type Options =
         | _ -> Some v
 
     [<Extension>]
+    /// <summary>
+    /// Creates <c>Some(value)</c> from C#.
+    /// </summary>
     static member Some (a:'a) : 'a option = Option.Some a
 
     [<Extension>]
@@ -158,6 +171,9 @@ type NumberParser(numberstyles: NumberStyles, cultureInfo: CultureInfo)=
 
 
 [<Extension>]
+/// <summary>
+/// Helpers for creating and matching F# <c>Choice</c> values from C#.
+/// </summary>
 type Choices =
 
 
@@ -197,6 +213,15 @@ type Choices =
     static member Create3Of3<'T1,'T2,'T3> (a: 'T3) : Choice<'T1,'T2,'T3> = Choice3Of3 a
 
 [<Extension>]
+/// <summary>
+/// Helpers for working with F# <c>Result&lt;TOk, TError&gt;</c> from C#.
+/// </summary>
+/// <example>
+/// <code lang="csharp">
+/// var parsed = parser.TryParseInt("42").ToResult("invalid");
+/// var plusOne = parsed.Select(x => x + 1);
+/// </code>
+/// </example>
 type Results =
 
     /// Attempts to cast an object.
@@ -236,7 +261,13 @@ type Results =
 
     // constructors
 
+    /// <summary>
+    /// Creates <c>Ok(value)</c>.
+    /// </summary>
     static member Ok<'T1,'T2> (a: 'T1) : Result<'T1,'T2> = Ok a
+    /// <summary>
+    /// Creates <c>Error(value)</c>.
+    /// </summary>
     static member Error<'T1,'T2> (b: 'T2) : Result<'T1,'T2> = Result.Error b
 
 
@@ -309,4 +340,3 @@ module Enums=
     let getValues<'t> ()=
         let values = System.Enum.GetValues (typeof<'t>)
         Enumerable.Cast<'t> values //Array.unbox
-

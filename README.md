@@ -6,6 +6,25 @@ The goal of this project is to expose selected F# classes to C#. There are some 
 
 ---
 
+## Usage
+
+```csharp
+using FSharpPlusCSharp;
+using Microsoft.FSharp.Core;
+
+var a = 5.Some();
+var b = 6.Some();
+var sum = from x in a
+          from y in b
+          select x + y; // Some 11
+
+var result = sum.ToResult("missing value");
+```
+
+Public APIs also include XML documentation comments so usage is rendered by standard .NET documentation tooling (for example IntelliSense).
+
+---
+
 ## Builds
 
 MacOS/Linux | Windows
